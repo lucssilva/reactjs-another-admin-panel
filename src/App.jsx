@@ -1,6 +1,12 @@
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { HeaderWidget } from "./view/widgets";
+
 function App() {
   return (
-    <div></div>
+    <Router>
+      <HeaderWidget title="Another Admin Panel App" />
+    </Router>
   );
 }
 
