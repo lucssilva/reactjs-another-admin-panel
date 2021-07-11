@@ -1,0 +1,16 @@
+{
+    "users":[
+        {
+            "id":"1",
+            "name":"Lucas Silva",
+            "email":"lucssbarrosdasilva@gmail.com",
+            "role_key": "1"
+        },
+        {
+            "id":"2",
+            "name":"Elisa Barros",
+            "email":"elisa@email.com",
+            "role_key": "0"
+        }
+    ]
+}
