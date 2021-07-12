@@ -5,7 +5,7 @@ import {
   TrashIcon,
 } from "../../elements";
 
-const UserCardComponent = ({
+export const UserCardComponent = ({
   user = { name: '', email: '' },
   removeHandler = (id) => { }
 }) => {
@@ -33,5 +33,3 @@ const UserCardComponent = ({
     </div>
   );
 };
-
-export default UserCardComponent;

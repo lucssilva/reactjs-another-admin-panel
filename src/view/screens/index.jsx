@@ -1,1 +1,1 @@
-export { UsersListScreen } from './UserList/UsersListScreen';
+export { UsersListScreen } from './UserList/UsersList';

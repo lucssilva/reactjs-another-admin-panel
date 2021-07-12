@@ -1,7 +1,7 @@
 import React from "react";
 import { UserCardComponent } from '../../components';
 
-const UsersListWidget = ({
+export const UsersListWidget = ({
     users = [],
     removeHandler = (userId) => { },
 }) => {
@@ -20,5 +20,3 @@ const UsersListWidget = ({
         </ul>
     );
 };
-
-export default UsersListWidget;

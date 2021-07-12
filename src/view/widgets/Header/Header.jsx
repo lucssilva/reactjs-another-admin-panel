@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeaderWidget = (
+export const HeaderWidget = (
   { title = '' }
 ) => {
   return (
@@ -12,5 +12,3 @@ const HeaderWidget = (
     </nav>
   );
 };
-
-export default HeaderWidget;

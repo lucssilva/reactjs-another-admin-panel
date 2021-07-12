@@ -1,1 +1,1 @@
-export {default as UserCardComponent} from './UserCard/UserCard';
+export { UserCardComponent } from './UserCard/UserCard';
