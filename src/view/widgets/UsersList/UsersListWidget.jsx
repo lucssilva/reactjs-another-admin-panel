@@ -2,12 +2,14 @@ import React from "react";
 import { UserCardComponent } from '../../components';
 
 const UsersListWidget = ({
-    users = []
+    users = [],
+    removeHandler = (userId) => { },
 }) => {
     const renderUsersList = users.map((user, index) => {
         return (
             <li className="list-group-item list-group-item-action">
-                <UserCardComponent key={index} user={user} />
+                <UserCardComponent key={index}
+                    user={user} removeHandler={removeHandler} />
             </li>
         );
     });

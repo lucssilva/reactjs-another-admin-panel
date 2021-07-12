@@ -1,16 +1,6 @@
 import api from '../services/httpClient';
 import { USERS_ENDPOINT } from '../helpers/apiConsts';
 
-export const retrieveUsers = async () => {
-    try {
-        const response = await api.get(USERS_ENDPOINT);
-        return response.data;
-    } catch (error) {
-        console.log(error);
-        return [];
-    }
-}
-
 export const fetchUser = async (userId) => {
     try {
         const response = await api.get(`${USERS_ENDPOINT}/${userId}`);
@@ -18,6 +8,26 @@ export const fetchUser = async (userId) => {
     } catch (error) {
         console.log(error);
         return {};
+    }
+}
+
+export const createUser = async (user) => {
+    try {
+        const response = await api.post(USERS_ENDPOINT, user);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        return {};
+    }
+}
+
+export const retrieveUsers = async () => {
+    try {
+        const response = await api.get(USERS_ENDPOINT);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        return [];
     }
 }
 
