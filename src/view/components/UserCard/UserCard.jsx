@@ -1,9 +1,5 @@
-
 import React from "react";
-import {
-  // UserIcon,
-  TrashIcon,
-} from "../../elements";
+import { TrashIcon } from "../../elements";
 
 export const UserCardComponent = ({
   user = { name: '', email: '' },
@@ -18,18 +14,17 @@ export const UserCardComponent = ({
 
   return (
     <div className="d-flex align-items-center">
-      {/* <UserIcon className=""
-        style={{ maxWidth: "64px" }} /> */}
 
       <div className="m-3">
         <div>{name}</div>
         <div>{email}</div>
       </div>
 
-      <div class="ms-auto btn btn-lg btn-outline-danger"
+      <div className="ms-auto btn btn-lg btn-outline-danger"
         onClick={onClickHandler}>
-        <TrashIcon />
+        <TrashIcon style={{ pointerEvents: "none" }} />
       </div>
+
     </div>
   );
 };

@@ -1,26 +1,14 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import { UsersListScreen } from "./view/screens";
-import { HeaderWidget } from "./view/widgets";
+import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "./controllers/userRedux";
+import { IndexPage, LoginPage } from "./view/pages/";
 
-function App() {
+export const App = () => {
+  const user = useSelector(selectUser);
+
   return (
-    <Router>
-      <HeaderWidget title="Another Admin Panel App" />
-
-      <Switch>
-        <Route exact path="/">
-          <UsersListScreen />
-        </Route>
-
-      </Switch>
-
-    </Router>
+    <Fragment>
+      {user ? <IndexPage /> : <LoginPage />}
+    </Fragment>
   );
-}
-
-export default App;
+};
