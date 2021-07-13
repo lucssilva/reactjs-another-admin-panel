@@ -8,7 +8,6 @@ import {
   UserModalWidget,
 } from "../../widgets";
 import * as repo from "../../../api/userRepository";
-import { uuid } from "uuidv4";
 
 
 export const UsersListScreen = () => {
@@ -22,12 +21,6 @@ export const UsersListScreen = () => {
 
     getUsers();
   }, []);
-
-  const createUserHandler = async (user) => {
-    const _temp = { id: uuid(), ...user };
-    const _user = await repo.createUser(_temp);
-    setUsers([...users, _user]);
-  }
 
   const removeUserHandler = async (userId) => {
     const code = await repo.deleteUser(userId);
@@ -43,7 +36,7 @@ export const UsersListScreen = () => {
     <Fragment>
       <UsersListWidget users={users} removeHandler={removeUserHandler}/>
 
-      <UserModalWidget createHandler={createUserHandler} />
+      <UserModalWidget />
     </Fragment>
   );
 }

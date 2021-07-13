@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { login } from "../../../controllers/userRedux";
+import * as repo from "../../../api/authRepository";
 import './Login.css';
+import { isEmpty } from '../../../helpers/utils';
 
 export const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -9,16 +11,20 @@ export const LoginPage = () => {
 
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const data = await repo.login({ email, password });
+        if (isEmpty(data)) return
+        const { token, expires, user } = data;
 
         dispatch(
             login({
-                email: email,
-                password: password,
+                ...user,
                 loggedIn: true,
             })
         );
+        localStorage.setItem('access_token', JSON.stringify({ "value": token, "expires_in": expires }));
 
         setEmail("");
         setPassword("");
@@ -36,7 +42,7 @@ export const LoginPage = () => {
                         placeholder="name@example.com"
                         onChange={(e) => setEmail(e.target.value)}
                         required />
-                    <label for="floatingInput">Email address</label>
+                    <label htmlFor="floatingInput">Email address</label>
                 </div>
                 <div className="form-floating">
                     <input
@@ -46,7 +52,7 @@ export const LoginPage = () => {
                         placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
                         required />
-                    <label for="floatingPassword">Password</label>
+                    <label htmlFor="floatingPassword">Password</label>
                 </div>
 
                 <div className="checkbox mb-3">
