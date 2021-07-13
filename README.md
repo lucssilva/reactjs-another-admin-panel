@@ -1,9 +1,24 @@
 # Admin Panel App
+This app suggest the use of Atomic Design for its View using Elements, Components, Widgets, Screens instead of Atom, Molecules, Organism and Templates
+
+## Run the app
 Before test the app, don't forget to install necessary package with `npm install`, feel free to perform a `npm audit fix` after
 
 To test the application it's necessary to use two terminals:
 1. One to run `npm run fake-server`, after that the frontend can perform requests to the fake-server in port 8080
 2. Th other use to run `npm start`, and after that you can test the app
+
+## Tasks
+- [ ] Performing requests after login to use access_token saved properly in localStorage;
+- [ ] Implemeting refresh token logic after expires;
+- [ ] Protecting UsersListScreen to Admin users;
+- [ ] Creation of Profile Page, with self exclusion and password rewrite (Perform in 'backend' too);
+- [ ] Updating create user flow to add a password
+- [ ] Updating create user flow to choose if is a Admin
+- [ ] Updating create user flow to add picture or picture url
+- [ ] Preveting Admin users to delete other Admin users
+- [ ] Updating HeaderWidget to show user picture
+
 ## Available Scripts
 In the project directory, you can run:
 ### `npm fake-server`
@@ -41,3 +56,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## References
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project use Bootstrap 5 and so its templates for UI
